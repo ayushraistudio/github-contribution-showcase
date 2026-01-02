@@ -1,7 +1,8 @@
 const fetch = require("node-fetch");
 const fs = require("fs");
 
-const username = "ayushraistudio";
+
+const username = process.env.GITHUB_REPOSITORY_OWNER || "ayushraistudio";
 
 async function fetchGitHubData() {
   console.log("Fetching Data & Calculating Streak for:", username);
@@ -89,7 +90,7 @@ async function fetchGitHubData() {
       }
     }
 
-    console.log(`✅ Data Fetched: Streak: ${currentStreak}, Contributions: ${totalContributions}`);
+    console.log(`✅ Data Fetched for ${username} | Streak: ${currentStreak}, Contributions: ${totalContributions}`);
 
     const data = {
       public_repos: userData.repositories.totalCount, // Data fetch kar rahe hain par display nahi karenge
