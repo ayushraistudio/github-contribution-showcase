@@ -1,25 +1,39 @@
 # 🏆 Personal GitHub Trophy Generator
 
-This project generates a personalized **Monokai-style GitHub trophy** using live GitHub API data.  
-The trophy updates automatically every day using **GitHub Actions**.
+Generate a beautiful, animated, and personalized **Neon GitHub Trophy** automatically using GitHub Actions.
 
-### 🧩 Technologies Used
-- Node.js  
-- GitHub REST API  
-- GitHub Actions (workflow)  
-- SVG graphics  
+![Demo Trophy](./trophy.svg)
 
-### 📄 Output Preview
-![AR Trophy](./trophy.svg?v=1)
+## ✨ Features
+- **Automatic Updates:** Runs every day to fetch your latest stats.
+- **Neon Glassmorphism Design:** Cool aesthetic with glowing effects.
+- **Dynamic Stats:** Shows Active Days, Total Contributions, and **Current Streak 🔥**.
+- **Zero Maintenance:** Just set it up once and forget it!
 
+---
 
+## 🚀 How to Add This to Your Profile?
 
+You can get this trophy on your profile in just 3 steps!
 
+### Step 1: Fork this Repository
+Click the **Fork** button (top right corner of this page) to create a copy of this repository in your account.
 
+### Step 2: Enable Workflows
+1. Go to the **Actions** tab in your forked repository.
+2. Click on the green button **"I understand my workflows, go ahead and enable them"**.
+3. Select **"Update Trophy"** from the left sidebar.
+4. Click **"Run workflow"** (on the right side) to generate your first trophy!
 
+### Step 3: Add to Your Profile
+Copy the code below and paste it into your profile's `README.md`. 
+**(Change `YOUR_USERNAME` to your GitHub username in the link below)**
 
-
-
-
-
+```html
+<div align="center">
+  <a href="[https://github.com/ayushraistudio/ayush-trophy](https://github.com/ayushraistudio/ayush-trophy)">
+    <img src="[https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy.svg](https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy.svg)" width="800" />
+  </a>
+</div>
+<p align="center"> <b>⭐ Created by <a href="https://github.com/ayushraistudio">Ayush Rai</a> | Don't forget to Star this repo! ⭐</b> </p>
 
