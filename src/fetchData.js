@@ -1,67 +1,111 @@
+const fetch = require("node-fetch");
 const fs = require("fs");
 
-try {
-  const data = JSON.parse(fs.readFileSync("data.json", "utf-8"));
+const username = "ayushraistudio";
 
-  // Widescreen Neon Layout - Fixed Coordinates to prevent Overlap
-  const svg = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250">
-    <defs>
-      <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style="stop-color:#0f2027;stop-opacity:1" />
-        <stop offset="50%" style="stop-color:#203a43;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#2c5364;stop-opacity:1" />
-      </linearGradient>
+async function fetchGitHubData() {
+  console.log("Fetching Data & Calculating Streak for:", username);
+  const token = process.env.GH_TOKEN;
 
-      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-        <feGaussianBlur stdDeviation="3" result="blur"/>
-        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-      </filter>
+  // GraphQL Query to get daily contribution history
+  const query = `
+    query {
+      user(login: "${username}") {
+        createdAt
+        repositories(first: 100, ownerAffiliations: OWNER, privacy: PUBLIC) {
+          totalCount
+        }
+        contributionsCollection {
+          contributionCalendar {
+            totalContributions
+            weeks {
+              contributionDays {
+                contributionCount
+                date
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
 
-      <style>
-        .title { font-family: sans-serif; font-weight: bold; font-size: 22px; fill: white; letter-spacing: 2px; text-transform: uppercase; }
-        .stat-label { font-family: sans-serif; font-size: 14px; fill: #aeaeae; text-transform: uppercase; letter-spacing: 1px; }
-        .stat-number { font-family: sans-serif; font-weight: 800; font-size: 40px; fill: white; }
-        
-        /* Animation Classes */
-        .fade-in { animation: fadeIn 2s ease-in-out; }
-        .pulse { animation: pulse 3s infinite alternate; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
-      </style>
-    </defs>
+  try {
+    const response = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        Authorization: `bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query }),
+    });
 
-    <rect x="10" y="10" width="780" height="230" rx="15" fill="url(#bgGradient)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    const result = await response.json();
 
-    <text x="400" y="50" text-anchor="middle" class="title">⚡ Ayush Rai Stats ⚡</text>
-    <line x1="200" y1="65" x2="600" y2="65" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    if (result.errors) {
+      console.error("GraphQL Error:", result.errors);
+      return;
+    }
 
-    <g transform="translate(50, 90)">
-      <rect x="0" y="0" width="160" height="110" rx="10" fill="rgba(0,0,0,0.3)" stroke="#00ffcc" stroke-width="2"/>
-      <text x="80" y="35" text-anchor="middle" class="stat-label" fill="#00ffcc">Active Days</text>
-      <text x="80" y="80" text-anchor="middle" class="stat-number fade-in">${data.active_days}</text>
-    </g>
+    const userData = result.data.user;
+    const calendar = userData.contributionsCollection.contributionCalendar;
 
-    <g transform="translate(290, 80)">
-      <rect class="pulse" x="0" y="0" width="220" height="130" rx="12" fill="rgba(0,0,0,0.5)" stroke="#ff00cc" stroke-width="3" filter="url(#glow)"/>
-      <text x="110" y="40" text-anchor="middle" class="stat-label" fill="#ff00cc">Contributions</text>
-      <text x="110" y="90" text-anchor="middle" class="stat-number fade-in" style="font-size: 50px;">${data.total_contributions}</text>
-    </g>
+    // 1. Total Contributions
+    const totalContributions = calendar.totalContributions;
 
-    <g transform="translate(590, 90)">
-      <rect x="0" y="0" width="160" height="110" rx="10" fill="rgba(0,0,0,0.3)" stroke="#ffcc00" stroke-width="2"/>
-      <text x="80" y="35" text-anchor="middle" class="stat-label" fill="#ffcc00">Public Repos</text>
-      <text x="80" y="80" text-anchor="middle" class="stat-number fade-in">${data.public_repos}</text>
-    </g>
+    // 2. Active Days Count
+    let activeDaysCount = 0;
+    
+    // 3. 🔥 Logic to Calculate Current Streak
+    let currentStreak = 0;
+    let daysArray = [];
 
-  </svg>`;
+    // Flatten the weeks into a single array of days
+    calendar.weeks.forEach((week) => {
+      week.contributionDays.forEach((day) => {
+        daysArray.push(day);
+        if (day.contributionCount > 0) activeDaysCount++;
+      });
+    });
 
-  fs.writeFileSync("trophy.svg", svg);
-  console.log("🏆 Widescreen Layout Updated!");
-  
-} catch (error) {
-  console.error("Error generating SVG:", error);
-  process.exit(1);
+    // Reverse array to check from today backwards
+    daysArray.reverse();
+
+    const today = new Date().toISOString().split('T')[0];
+
+    for (let i = 0; i < daysArray.length; i++) {
+      const day = daysArray[i];
+      
+      // Agar contribution hai to streak badhao
+      if (day.contributionCount > 0) {
+        currentStreak++;
+      } else {
+        // Agar aaj 0 contribution hai, to streak mat todo (abhi din baaki hai)
+        if (day.date === today) {
+          continue;
+        }
+        // Agar kal ya usse pehle 0 tha, to streak break
+        break;
+      }
+    }
+
+    console.log(`✅ Data Fetched: Streak: ${currentStreak}, Contributions: ${totalContributions}`);
+
+    const data = {
+      public_repos: userData.repositories.totalCount, // Data fetch kar rahe hain par display nahi karenge
+      total_contributions: totalContributions,
+      active_days: activeDaysCount,
+      current_streak: currentStreak // Yeh naya data hai
+    };
+
+    fs.writeFileSync("data.json", JSON.stringify(data, null, 2));
+    console.log("✅ data.json updated successfully!");
+
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    process.exit(1);
+  }
 }
+
+fetchGitHubData();
 
