@@ -8,12 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    # 👇 YEH LINE SABSE ZAROORI HAI (Push karne ki permission)
+    # Permission to write to repo
     permissions:
       contents: write
 
+    # 👇 YEH FIX KIYA HAI (secrets.GITHUB_TOKEN automatic hota hai)
     env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout repo
@@ -22,10 +23,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16" # Version 16 is more stable for fetch@2
+          node-version: "16"
 
       - name: Install dependencies
-        run: npm install node-fetch@2
+        # Force install taaki version conflict na ho
+        run: npm install node-fetch@2 --force
 
       - name: Fetch GitHub data and update SVG
         run: |
@@ -37,7 +39,6 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add trophy.svg data.json
-          # Agar koi change nahi hua to error na aaye, isliye "|| echo" lagaya hai
           git commit -m "Auto-update trophy" || echo "No changes to commit"
           git push
           
