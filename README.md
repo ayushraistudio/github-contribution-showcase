@@ -1,9 +1,8 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/ayushraistudio/ayush-trophy/main/trophy.svg" width="600" />
+  <img src="https://raw.githubusercontent.com/ayushraistudio/ayush-trophy/main/trophy.svg" width="700" />
   <h1>🏆 Personal GitHub Trophy Generator</h1>
-  <p>
-    <b>Generate a beautiful, animated, and personalized Neon GitHub Trophy automatically using GitHub Actions.</b>
-  </p>
+  <p><b>Automatically generate a neon-style animated GitHub Trophy using GitHub Actions.</b></p>
+
   <p>
     <a href="https://github.com/ayushraistudio/ayush-trophy/issues">
       <img src="https://img.shields.io/github/issues/ayushraistudio/ayush-trophy?style=for-the-badge&color=ff0055" />
@@ -19,68 +18,64 @@
 
 ---
 
-### ✨ Features
-* **Automatic Updates:** Runs every day to fetch your latest stats.
-* **Neon Glassmorphism Design:** Cool aesthetic with glowing effects.
-* **Dynamic Stats:** Shows Active Days, Total Contributions, and Current Streak 🔥.
-* **Zero Maintenance:** Just set it up once and forget it!
+## ✨ Features
+- 🔄 **Daily Auto Update** via GitHub Actions  
+- 🎨 **Neon / Glassmorphism Trophy Design**  
+- 📊 **Dynamic Stats** (Active Days, Contributions, Streak 🔥)  
+- 🧠 **Uses GitHub's Built-in Token** (No secrets needed)
 
 ---
 
-### 🚀 How to Add This to Your Profile?
-You can get this trophy on your profile in just 3 steps!
+## 🚀 Add This Trophy to Your Profile
 
-#### **Step 1: Fork this Repository**
-Click the **Fork** button (top right corner of this page) to create a copy of this repository in your account.
+### Step 1: Fork the Repository
+Fork this repo into your GitHub account.
 
-#### **Step 2: Enable Workflows**
-1.  Go to the **Actions** tab in your forked repository.
-2.  Click on the green button **"I understand my workflows, go ahead and enable them"**.
-3.  Select **"Update Trophy"** from the left sidebar.
-4.  Click **"Run workflow"** (on the right side) to generate your first trophy!
+### Step 2: Enable GitHub Actions
+1. Open your fork → **Actions**
+2. Enable workflows
+3. Select **Update Trophy**
+4. Click **Run workflow**
 
-#### **Step 3: Add to Your Profile**
-Copy the code below and paste it into your profile's `README.md`. 
-*(Change `YOUR_USERNAME` to your actual GitHub username in the link below)*
+### Step 3: Embed in Your Profile README
+Replace `YOUR_USERNAME` and paste this:
 
 ```html
 <div align="center">
   <a href="https://github.com/ayushraistudio/ayush-trophy">
-    <img src="https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy.svg" width="800" />
+    <img src="https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy.svg" width="700" />
   </a>
 </div>
+---
+
+## 🎨 Customization
+You can customize:
+- 🎨 Colors → `src/theme.js`
+- 📐 Size → change `width` in README
+- 🧱 Layout / stats → `index.js`
 
 ---
 
-### 🤝 Contributing (For Developers)
-Want to create a **New Theme** (Cyberpunk, Gold, Minimal) or improve the code? We welcome contributions! 🚀
+## 🛠️ Run Locally (For Developers)
 
-#### **How to Run Locally?**
+```bash
+git clone https://github.com/YOUR_USERNAME/ayush-trophy.git
+cd ayush-trophy
+npm install
+node index.js
+```
 
-1.  **Fork & Clone** the repo:
-    ```bash
-    git clone [https://github.com/YOUR_USERNAME/ayush-trophy.git](https://github.com/YOUR_USERNAME/ayush-trophy.git)
-    cd ayush-trophy
-    ```
-
-2.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Run the Generator:**
-    This will generate a `trophy.svg` file in your folder for testing.
-    ```bash
-    node index.js
-    ```
-
-4.  **Submit a Pull Request (PR):**
-    - Make your changes (e.g., change colors in `src/`).
-    - Push your code and create a PR.
-    - Attach a screenshot of your new design!
+This will generate `trophy.svg` locally.
 
 ---
 
-<p align="center"> 
-  <b>⭐ Created by <a href="https://github.com/ayushraistudio">Ayush Rai</a> | Don't forget to Star this repo! ⭐</b> 
+## ❗ Troubleshooting
+- Trophy not updating? → Re-run the workflow manually  
+- SVG not loading? → Wait 1–2 minutes (GitHub raw cache delay)  
+- Daily update stopped? → GitHub may auto-disable Actions on forks  
+
+---
+
+<p align="center">
+  ⭐ Created by <a href="https://github.com/ayushraistudio">Ayush Rai</a> — Star the repo if you like it ⭐
 </p>
