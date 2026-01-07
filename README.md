@@ -49,24 +49,39 @@ Copy the code below and paste it into your profile's `README.md`.
     <img src="[https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy.svg](https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy.svg)" width="800" />
   </a>
 </div>
-🤝 Contributing (For Developers)
-Want to create a New Theme (Cyberpunk, Gold, Minimal) or improve the code? We welcome contributions! 🚀
 
-How to Run Locally?
+---
 
-1. Fork & Clone the repo:
-   git clone [https://github.com/YOUR_USERNAME/ayush-trophy.git](https://github.com/YOUR_USERNAME/ayush-trophy.git)
-   cd ayush-trophy
-2. Install Dependencies:
-   npm install
-3. Run the Generator:
-   This will generate a trophy.svg file in your folder for testing.
-   node index.js
-4. Submit a Pull Request (PR):
-   Make your changes (e.g., change colors in src/).
-   Push your code and create a PR.
-   Attach a screenshot of your new design!
+### 🤝 Contributing (For Developers)
+Want to create a **New Theme** (Cyberpunk, Gold, Minimal) or improve the code? We welcome contributions! 🚀
 
-<p align="center">
-<b>⭐ Created by <a href="https://github.com/ayushraistudio">Ayush Rai</a> | Don't forget to Star this repo! ⭐</b>
+#### **How to Run Locally?**
+
+1.  **Fork & Clone** the repo:
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/ayush-trophy.git](https://github.com/YOUR_USERNAME/ayush-trophy.git)
+    cd ayush-trophy
+    ```
+
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the Generator:**
+    This will generate a `trophy.svg` file in your folder for testing.
+    ```bash
+    node index.js
+    ```
+
+4.  **Submit a Pull Request (PR):**
+    - Make your changes (e.g., change colors in `src/`).
+    - Push your code and create a PR.
+    - Attach a screenshot of your new design!
+
+---
+
+<p align="center"> 
+  <b>⭐ Created by <a href="https://github.com/ayushraistudio">Ayush Rai</a> | Don't forget to Star this repo! ⭐</b> 
 </p>
+
