@@ -87,8 +87,7 @@ function generateTrophy(data, theme) {
         <text x="80" y="85" text-anchor="middle" font-family="serif" font-weight="bold" font-size="45" fill="#fff">${data.current_streak}</text>
       </g>
     </svg>`;
-
-  // 4. SAKURA THEME
+  // 4. SAKURA THEME (Fixed Concatenation)
   const sakuraTheme = `
     <svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250">
       <defs>
@@ -98,33 +97,34 @@ function generateTrophy(data, theme) {
         </linearGradient>
       </defs>
       <rect width="800" height="250" rx="15" fill="url(#sakura_grad)" stroke="#ff79c6" stroke-width="2" />
-      <text x="400" y="50" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#ff79c6">🌸 ${displayName.toUpperCase()} 🌸</text>
+      <text x="400" y="50" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#ff79c6">🌸 ` + displayName.toUpperCase() + ` 🌸</text>
       <g transform="translate(50, 110)">
         <text x="80" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#f8f8f2">Active Days</text>
-        <text x="80" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="40" fill="#fff">${data.active_days}</text>
+        <text x="80" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="40" fill="#fff">` + data.active_days + `</text>
       </g>
       <g transform="translate(290, 100)">
         <rect width="220" height="110" rx="10" fill="rgba(255,121,198,0.1)" stroke="#ff79c6" stroke-dasharray="5,5"/>
         <text x="110" y="35" text-anchor="middle" font-family="Arial" font-size="16" fill="#ff79c6">Total Contributions</text>
-        <text x="110" y="85" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="50" fill="#fff">${data.total_contributions}</text>
+        <text x="110" y="85" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="50" fill="#fff">` + data.total_contributions + `</text>
       </g>
       <g transform="translate(590, 110)">
         <text x="80" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#f8f8f2">Streak</text>
-        <text x="80" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="40" fill="#fff">${data.current_streak}</text>
+        <text x="80" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="40" fill="#fff">` + data.current_streak + `</text>
       </g>
     </svg>`;
 
-  // 5. MATRIX THEME
+  // 5. MATRIX THEME (Fixed Concatenation)
   const matrixTheme = `
     <svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250">
       <rect width="800" height="250" rx="10" fill="#000000" stroke="#00ff00" stroke-width="2" />
       <text x="20" y="40" font-family="Courier New" font-size="20" fill="#00ff00">system_stats:~/github$ run stats.sh</text>
-      <text x="50" y="90" font-family="Courier New" font-size="22" fill="#00ff00">> USER: ${displayName.toUpperCase()}</text>
-      <text x="50" y="130" font-family="Courier New" font-size="22" fill="#00ff00">> ACTIVE_DAYS: ${data.active_days}</text>
-      <text x="50" y="170" font-family="Courier New" font-size="22" fill="#00ff00">> TOTAL_CONTRIBS: ${data.total_contributions}</text>
-      <text x="50" y="210" font-family="Courier New" font-size="22" fill="#00ff00">> CURRENT_STREAK: ${data.current_streak}</text>
+      <text x="50" y="90" font-family="Courier New" font-size="22" fill="#00ff00">> USER: ` + displayName.toUpperCase() + `</text>
+      <text x="50" y="130" font-family="Courier New" font-size="22" fill="#00ff00">> ACTIVE_DAYS: ` + data.active_days + `</text>
+      <text x="50" y="170" font-family="Courier New" font-size="22" fill="#00ff00">> TOTAL_CONTRIBS: ` + data.total_contributions + `</text>
+      <text x="50" y="210" font-family="Courier New" font-size="22" fill="#00ff00">> CURRENT_STREAK: ` + data.current_streak + `</text>
       <text x="780" y="230" text-anchor="end" font-family="Courier New" font-size="14" fill="#00ff00" opacity="0.5">_status: operational</text>
     </svg>`;
+  
 
   if (theme === 'cyberpunk') return cyberpunkTheme;
   if (theme === 'gold') return goldTheme;
