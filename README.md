@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/ayushraistudio/ayush-trophy/main/trophy.svg" width="700" />
+  <img src="./trophy.svg" width="700" />
+  
   <h1>🏆 Personal GitHub Trophy Generator</h1>
   <p><b>Automatically generate a neon-style animated GitHub Trophy using GitHub Actions.</b></p>
 
@@ -80,5 +81,6 @@ This will generate `trophy.svg` locally.
 <p align="center">
   ⭐ Created by <a href="https://github.com/ayushraistudio">Ayush Rai</a> — Star the repo if you like it ⭐
 </p>
+
 
 
