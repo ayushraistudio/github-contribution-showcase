@@ -81,3 +81,25 @@ node src/generateTrophy.js
 </p>
 
 
+
+
+
+<div align="center">
+
+  ## 🏆 My Coding Stats Showcase
+  
+  <img src="https://personal-trophy.vercel.app/api?username=ayushraistudio&theme=neon" width="800" alt="Ayush's GitHub Trophy" />
+
+  <br/>
+
+  <p align="center">
+    <b>Select Theme:</b> 
+    <a href="https://personal-trophy.vercel.app/api?username=ayushraistudio&theme=neon">Neon</a> • 
+    <a href="https://personal-trophy.vercel.app/api?username=ayushraistudio&theme=cyberpunk">Cyberpunk</a> • 
+    <a href="https://personal-trophy.vercel.app/api?username=ayushraistudio&theme=gold">Luxury Gold</a>
+  </p>
+
+</div>
+
+
+
