@@ -1,8 +1,6 @@
 function generateTrophy(data, theme) {
-  const displayName = data.name;
-
+  const displayName = data.name || "GitHub User";
   const themes = {
-    // 🟢 NEON THEME
     neon: `
       <svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250">
         <defs>
@@ -26,60 +24,26 @@ function generateTrophy(data, theme) {
           </style>
         </defs>
         <rect x="10" y="10" width="780" height="230" rx="15" fill="url(#bgGradient)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-        <text x="400" y="50" text-anchor="middle" class="title">⚡ ${displayName.toUpperCase()} STATS ⚡</text>
+        <text x="400" y="50" text-anchor="middle" class="title">⚡ \${displayName.toUpperCase()} STATS ⚡</text>
         <line x1="200" y1="65" x2="600" y2="65" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
         <g transform="translate(50, 90)">
           <rect x="0" y="0" width="160" height="110" rx="10" fill="rgba(0,0,0,0.3)" stroke="#00ffcc" stroke-width="2"/>
           <text x="80" y="35" text-anchor="middle" class="stat-label" fill="#00ffcc">Active Days</text>
-          <text x="80" y="80" text-anchor="middle" class="stat-number fade-in">${data.active_days}</text>
+          <text x="80" y="80" text-anchor="middle" class="stat-number fade-in">\${data.active_days}</text>
         </g>
         <g transform="translate(290, 80)">
           <rect class="pulse" x="0" y="0" width="220" height="130" rx="12" fill="rgba(0,0,0,0.5)" stroke="#ff00cc" stroke-width="3" filter="url(#glow)"/>
           <text x="110" y="40" text-anchor="middle" class="stat-label" fill="#ff00cc">Contributions</text>
-          <text x="110" y="90" text-anchor="middle" class="stat-number fade-in" style="font-size: 50px;">${data.total_contributions}</text>
+          <text x="110" y="90" text-anchor="middle" class="stat-number fade-in" style="font-size: 50px;">\${data.total_contributions}</text>
         </g>
         <g transform="translate(590, 90)">
           <rect x="0" y="0" width="160" height="110" rx="10" fill="rgba(0,0,0,0.3)" stroke="#ff5e00" stroke-width="2"/>
           <text x="80" y="35" text-anchor="middle" class="stat-label" fill="#ff5e00">Current Streak</text>
-          <text x="80" y="80" text-anchor="middle" class="stat-number fade-in">${data.current_streak}</text>
+          <text x="80" y="80" text-anchor="middle" class="stat-number fade-in">\${data.current_streak}</text>
         </g>
       </svg>`,
-
-    // 🟣 CYBERPUNK THEME
-    cyberpunk: `
-      <svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250">
-        <defs>
-          <linearGradient id="cyberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#2b003e;stop-opacity:1" />
-            <stop offset="50%" style="stop-color:#1a0b2e;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
-          </linearGradient>
-          <style>
-            .cyber-title { font-family: monospace; font-weight: bold; font-size: 24px; fill: #00f3ff; letter-spacing: 3px; text-transform: uppercase; }
-            .cyber-label { font-family: sans-serif; font-size: 14px; fill: #ff0099; text-transform: uppercase; font-weight: bold; }
-            .cyber-number { font-family: sans-serif; font-weight: 800; font-size: 40px; fill: #fff; }
-          </style>
-        </defs>
-        <rect x="10" y="10" width="780" height="230" rx="15" fill="url(#cyberGrad)" stroke="#00f3ff" stroke-width="3"/>
-        <text x="400" y="50" text-anchor="middle" class="cyber-title">⚡ ${displayName.toUpperCase()} ⚡</text>
-        <g transform="translate(50, 90)">
-          <rect x="0" y="0" width="160" height="110" rx="10" fill="rgba(255, 0, 153, 0.1)" stroke="#ff0099" stroke-width="2"/>
-          <text x="80" y="35" text-anchor="middle" class="cyber-label">Active Days</text>
-          <text x="80" y="80" text-anchor="middle" class="cyber-number">${data.active_days}</text>
-        </g>
-        <g transform="translate(290, 80)">
-          <rect x="0" y="0" width="220" height="130" rx="12" fill="rgba(0, 243, 255, 0.1)" stroke="#00f3ff" stroke-width="3"/>
-          <text x="110" y="40" text-anchor="middle" class="cyber-label">Contributions</text>
-          <text x="110" y="90" text-anchor="middle" class="cyber-number" style="font-size: 50px;">${data.total_contributions}</text>
-        </g>
-        <g transform="translate(590, 90)">
-          <rect x="0" y="0" width="160" height="110" rx="10" fill="rgba(249, 240, 2, 0.1)" stroke="#f9f002" stroke-width="2"/>
-          <text x="80" y="35" text-anchor="middle" class="cyber-label">Current Streak</text>
-          <text x="80" y="80" text-anchor="middle" class="cyber-number">${data.current_streak}</text>
-        </g>
-      </svg>`
+    cyberpunk: ``
   };
-
   return themes[theme] || themes.neon;
 }
 
