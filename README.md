@@ -4,6 +4,9 @@ Give your GitHub profile a premium look with dynamic, high-performance trophies!
 
 [![](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ayushraistudio/github-contribution-showcase)
 [![](https://img.shields.io/badge/Maintained%20with-Vercel-black?logo=vercel)](https://vercel.com)
+[![](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ayushraistudio/github-contribution-showcase/blob/main/LICENSE)
+[![](https://img.shields.io/badge/Contributions-Welcome-blue.svg)](https://github.com/ayushraistudio/github-contribution-showcase/blob/main/CONTRIBUTING.md)
+
 
 ---
 
@@ -55,5 +58,13 @@ If you want to host your own instance of this API:
 2. Deploy it to **Vercel**.
 3. Add your `GITHUB_TOKEN` in the Environment Variables.
 
+## 🤝 Contributing
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. Please refer to our [CONTRIBUTING.md](https://github.com/ayushraistudio/github-contribution-showcase/blob/main/CONTRIBUTING.md) for more details.
+
+## 📄 License
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+
 ---
 <p align="center">Made with ❤️ by <a href="https://github.com/ayushraistudio">Ayush Rai</a></p>
+
