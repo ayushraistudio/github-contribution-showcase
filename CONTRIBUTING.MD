@@ -1,4 +1,4 @@
-# 🤝 Contributing to Ayush Trophy
+# 🤝 Contributing to Github-Contribution-Showcase
 
 First of all, thank you for your interest! This project is now a **Dynamic API**, which means themes are generated on-the-fly via Vercel.
 
@@ -30,6 +30,7 @@ const themes = {
     </svg>
   `
 };
+
 
 ### Step 3: Test Your Theme
 Since this is a Vercel project, you can test it locally using vercel dev or simply push to your fork and check the Vercel preview URL:https://your-preview-url.vercel.app/api?username=your_username&theme=your_theme_name
