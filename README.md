@@ -13,39 +13,49 @@
       <img src="https://img.shields.io/github/forks/ayushraistudio/ayush-trophy?style=for-the-badge&color=00ccff" />
     </a>
   </p>
-</div>
 
 ---
 
-## 🎨 Available Themes
-Pick a design, copy the link, and replace `YOUR_USERNAME` with your GitHub username.
+## 🎨 Theme Gallery
+Pick a design, copy the link, and replace `YOUR_USERNAME`.
 
-### 🟢 Neon Style (Default)
-<a href="https://github.com/ayushraistudio/ayush-trophy">
-  <img src="./trophy_neon.svg" width="800" alt="Neon Trophy" />
-</a>
+<table align="center">
+  <tr>
+    <td align="center">
+      <b>🟢 Neon Style (Default)</b><br />
+      <a href="https://github.com/ayushraistudio/ayush-trophy">
+        <img src="./trophy_neon.svg" width="600" />
+      </a>
+      <br />
+      <sub>Copy this link:</sub><br />
+      <code>https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_neon.svg</code>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <br /><b>🟣 Cyberpunk Style</b><br />
+      <a href="https://github.com/ayushraistudio/ayush-trophy">
+        <img src="./trophy_cyberpunk.svg" width="600" />
+      </a>
+      <br />
+      <sub>Copy this link:</sub><br />
+      <code>https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_cyberpunk.svg</code>
+    </td>
+  </tr>
+</table>
 
-**Copy this link:**
-```text
-[https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_neon.svg](https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_neon.svg)
+---
 
-### 🟣 Cyberpunk Style
-<a href="https://github.com/ayushraistudio/ayush-trophy">
-  <img src="./trophy_cyberpunk.svg" width="800" alt="Cyberpunk Trophy" />
-</a>
+</div>
 
-**Copy this link:**
-```text
-[https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_cyberpunk.svg](https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_cyberpunk.svg)
+## 🚀 Quick Setup
+1. **Fork** this repository.
+2. Go to **Actions** tab and click **"Enable workflows"**.
+3. Select **Update Trophy** workflow and click **"Run workflow"**.
+4. Copy your theme's URL and paste it into your profile README.
 
-🚀 Quick Setup
-Fork this repository to your account.
-Go to Actions tab and click "Enable workflows".
-Select Update Trophy workflow and click "Run workflow".
-Use the link of your favorite theme from above in your Profile README.
-
-🤝 Contributing
-Want to build a new design? We love new themes! Please check our Contributing Guide and send a PR! 🚀
+## 🤝 Contributing
+Want to build a new design? Check our **[Contributing Guide](./CONTRIBUTING.md)** and send a PR! 🚀
 
 ## 🛠️ Local Development
 ```bash
@@ -54,7 +64,6 @@ cd ayush-trophy
 npm install
 node src/fetchData.js
 node src/generateTrophy.js
-
 
 <br />
 <p align="center">
