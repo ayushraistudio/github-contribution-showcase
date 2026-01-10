@@ -3,257 +3,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Contribution Showcase | Ayush Rai</title>
+    <title>GitHub Trophy Showcase | Ayush Rai</title>
     <style>
-        /* --- GLOBAL STYLES --- */
+        /* --- GLOBAL & MOBILE OPTIMIZATION --- */
+        :root {
+            --bg-dark: #050505;
+            --card-bg: #0a0a0f;
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00cc;
+            --neon-yellow: #e1ff00;
+            --text-grey: #aeaeae;
+        }
+
         body {
-            background-color: #050505;
-            background-image: radial-gradient(circle at 50% 50%, #101015 0%, #050505 100%);
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050505 80%);
             color: #fff;
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
+        /* --- CONTAINER --- */
+        .main-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         /* --- HEADER --- */
         header {
             text-align: center;
-            margin-bottom: 40px;
-            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-top: 40px;
         }
         h1 {
-            font-size: 2.5rem;
-            color: #00f3ff;
-            text-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            font-size: 2rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
         p {
-            color: #aeaeae;
-            font-size: 1.1rem;
+            color: var(--text-grey);
+            font-size: 1rem;
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
         }
-        .highlight { color: #ff00cc; font-weight: bold; }
+        .highlight { color: var(--neon-pink); font-weight: bold; }
 
         /* --- GRID LAYOUT --- */
         .grid-container {
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
-            width: 100%;
-            max-width: 1000px;
+            margin-bottom: 60px;
         }
-        /* Tablet & PC View */
         @media (min-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr 1fr;
-            }
+            .grid-container { grid-template-columns: 1fr 1fr; }
+            h1 { font-size: 2.8rem; }
         }
 
-        /* --- CARDS --- */
+        /* --- CARDS DESIGN --- */
         .card {
-            background: #0a0a0f;
+            background: var(--card-bg);
             border: 1px solid #333;
             border-radius: 12px;
             padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover {
             transform: translateY(-5px);
-            border-color: #00f3ff;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
         }
-        
-        /* Card Badge (New) */
+        .card-number {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+            z-index: 0;
+        }
         .badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 0.8rem;
-            padding: 4px 8px;
+            top: 15px;
+            right: 15px;
+            font-size: 0.75rem;
+            padding: 5px 10px;
             border-radius: 4px;
             font-weight: bold;
             text-transform: uppercase;
+            z-index: 1;
         }
-        .badge-new { background: #ff00cc; color: #fff; box-shadow: 0 0 10px #ff00cc; }
-        .badge-pop { background: #00f3ff; color: #000; box-shadow: 0 0 10px #00f3ff; }
+        .badge-new { background: var(--neon-pink); color: #fff; box-shadow: 0 0 10px var(--neon-pink); }
 
         .theme-title {
-            color: #e1ff00;
-            margin-top: 0;
-            font-size: 1.4rem;
-            border-bottom: 1px dashed #333;
-            padding-bottom: 10px;
+            color: #fff;
+            margin-top: 15px;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
             margin-bottom: 15px;
         }
-
-        /* Preview Image */
         .preview-img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid #222;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            background: #000;
         }
-
-        /* Code Snippet Box */
         .code-box {
-            background: #15151a;
-            color: #aeaeae;
+            background: #111;
+            color: var(--text-grey);
             padding: 12px;
             border-radius: 6px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             word-break: break-all;
-            border-left: 3px solid #ff00cc;
+            border-left: 3px solid var(--neon-blue);
             cursor: pointer;
-            position: relative;
             transition: 0.2s;
+            position: relative;
+            z-index: 1;
         }
         .code-box:hover {
-            background: #202025;
+            background: #1a1a1f;
             color: #fff;
         }
-        .code-box::after {
-            content: "CLICK TO COPY";
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.7rem;
-            color: #555;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .code-box:hover::after {
-            opacity: 1;
-        }
 
-        /* --- FOOTER BUTTON --- */
-        .footer-action {
-            margin-top: 50px;
+        /* --- INFO SECTION (NEW) --- */
+        .info-section {
+            background: #0a0a0f;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 40px;
             margin-bottom: 50px;
+            text-align: left;
         }
-        .btn {
-            padding: 15px 30px;
-            background: transparent;
-            color: #00f3ff;
-            border: 2px solid #00f3ff;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
+        .info-title {
+            color: var(--neon-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #333;
+            padding-bottom: 10px;
+        }
+        .step {
+            margin-bottom: 25px;
+        }
+        .step h3 {
+            color: #fff;
+            margin-bottom: 10px;
             font-size: 1.1rem;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        .btn:hover {
-            background: #00f3ff;
-            color: #000;
-            box-shadow: 0 0 20px #00f3ff;
+        .step p {
+            margin: 0;
+            font-size: 0.95rem;
+            max-width: 100%;
+        }
+        .markdown-block {
+            background: #111;
+            padding: 15px;
+            border-radius: 6px;
+            color: var(--neon-pink);
+            font-family: monospace;
+            margin-top: 10px;
+            overflow-x: auto;
+            border: 1px solid #333;
         }
 
-        /* Toast Notification */
+        /* --- ANIMATED BUTTON --- */
+        .btn-container {
+            margin: 20px 0 60px 0;
+            text-align: center;
+        }
+        .btn-pulse {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--neon-blue);
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            border-radius: 50px;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+            animation: pulse-animation 2s infinite;
+        }
+        .btn-pulse:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.8);
+            animation: none;
+        }
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 243, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: auto;
+            border-top: 1px solid #222;
+            width: 100%;
+            padding: 40px 0;
+            text-align: center;
+            background: #050505;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-link {
+            color: var(--text-grey);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .footer-link:hover {
+            color: var(--neon-yellow);
+            border-color: var(--neon-yellow);
+            background: rgba(225, 255, 0, 0.1);
+        }
+        .copyright {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* Toast */
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #333;
-            color: #fff;
+            background-color: var(--neon-blue);
+            color: #000;
+            font-weight: bold;
             text-align: center;
-            border-radius: 4px;
-            padding: 16px;
+            border-radius: 50px;
+            padding: 14px;
             position: fixed;
-            z-index: 1;
+            z-index: 100;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1rem;
-            border: 1px solid #00f3ff;
-            box-shadow: 0 0 10px #00f3ff;
+            box-shadow: 0 0 20px rgba(0,243,255,0.4);
         }
-        #toast.show {
-            visibility: visible;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
-
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>⚡ GitHub Trophy Showcase</h1>
-        <p>Dynamic, serverless trophies to show off your <span class="highlight">Contributions</span> & <span class="highlight">Streaks</span>.</p>
-        <p style="font-size: 0.9rem; margin-top:10px;">Created by <b>Ayush Rai</b></p>
-    </header>
+    <div class="main-wrapper">
+        <header>
+            <h1>⚡ GitHub Trophy Showcase</h1>
+            <p>Dynamic, serverless trophies to show off your <span class="highlight">Contributions</span> & <span class="highlight">Streaks</span>.</p>
+        </header>
 
-    <div class="grid-container">
+        <div class="grid-container">
 
-        <div class="card" style="border-color: #ff00cc; box-shadow: 0 0 10px rgba(255, 0, 204, 0.2);">
-            <div class="badge badge-new">NEW 🔥</div>
-            <h3 class="theme-title" style="color:#ff00cc">06. Hacker / Cyber Neon</h3>
-            <img class="preview-img" src="/api?username=ayushraistudio&theme=hacker&v=1" alt="Hacker Theme">
-            <div class="code-box" onclick="copyToClipboard(this)">
-                https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=hacker
+            <div class="card" style="border-color: var(--neon-pink);">
+                <div class="card-number">01</div>
+                <div class="badge badge-new">NEW 🔥</div>
+                <h3 class="theme-title" style="color:var(--neon-pink)">Hacker / Cyber Neon</h3>
+                <img class="preview-img" src="/api?username=ayushraistudio&theme=hacker&v=1" alt="Hacker Theme">
+                <div class="code-box" onclick="copyToClipboard(this)">
+                    https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=hacker
+                </div>
             </div>
+
+            <div class="card">
+                <div class="card-number">02</div>
+                <h3 class="theme-title" style="color:var(--neon-blue)">Classic Neon</h3>
+                <img class="preview-img" src="/api?username=ayushraistudio&theme=neon" alt="Neon Theme">
+                <div class="code-box" onclick="copyToClipboard(this)">
+                    https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=neon
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-number">03</div>
+                <h3 class="theme-title" style="color:#00f3ff">Cyberpunk</h3>
+                <img class="preview-img" src="/api?username=ayushraistudio&theme=cyberpunk" alt="Cyberpunk Theme">
+                <div class="code-box" onclick="copyToClipboard(this)">
+                    https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=cyberpunk
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-number">04</div>
+                <h3 class="theme-title" style="color:#ffd700">Luxury Gold</h3>
+                <img class="preview-img" src="/api?username=ayushraistudio&theme=gold" alt="Gold Theme">
+                <div class="code-box" onclick="copyToClipboard(this)">
+                    https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=gold
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-number">05</div>
+                <h3 class="theme-title" style="color:#ffb7b2">Midnight Sakura</h3>
+                <img class="preview-img" src="/api?username=ayushraistudio&theme=sakura&v=1" alt="Sakura Theme">
+                <div class="code-box" onclick="copyToClipboard(this)">
+                    https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=sakura
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-number">06</div>
+                <h3 class="theme-title" style="color:#00ff00">The Matrix</h3>
+                <img class="preview-img" src="/api?username=ayushraistudio&theme=matrix&v=1" alt="Matrix Theme">
+                <div class="code-box" onclick="copyToClipboard(this)">
+                    https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=matrix
+                </div>
+            </div>
+
         </div>
 
-        <div class="card">
-            <div class="badge badge-pop">POPULAR</div>
-            <h3 class="theme-title">01. Classic Neon</h3>
-            <img class="preview-img" src="/api?username=ayushraistudio&theme=neon" alt="Neon Theme">
-            <div class="code-box" onclick="copyToClipboard(this)">
-                https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=neon
+        <section class="info-section">
+            <h2 class="info-title">🛠️ How to Use & Details</h2>
+            
+            <div class="step">
+                <h3>1. What is this?</h3>
+                <p>This is a serverless API that generates dynamic SVG trophies based on your GitHub contribution stats (Active Days, Streaks, Total Contributions). It updates automatically every time you commit code.</p>
             </div>
-        </div>
 
-        <div class="card">
-            <h3 class="theme-title" style="color: #00f3ff;">02. Cyberpunk</h3>
-            <img class="preview-img" src="/api?username=ayushraistudio&theme=cyberpunk" alt="Cyberpunk Theme">
-            <div class="code-box" onclick="copyToClipboard(this)">
-                https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=cyberpunk
+            <div class="step">
+                <h3>2. Integration Guide</h3>
+                <p>Simply copy the URL from above and replace <code>YOUR_USERNAME</code> with your actual GitHub username. Then, paste it into your profile <code>README.md</code> file like this:</p>
+                <div class="markdown-block">
+                    [![My Stats](https://personal-trophy.vercel.app/api?username=ayushraistudio&theme=hacker)](https://github.com/ayushraistudio)
+                </div>
             </div>
-        </div>
 
-        <div class="card">
-            <h3 class="theme-title" style="color: #ffd700;">03. Luxury Gold</h3>
-            <img class="preview-img" src="/api?username=ayushraistudio&theme=gold" alt="Gold Theme">
-            <div class="code-box" onclick="copyToClipboard(this)">
-                https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=gold
+            <div class="step">
+                <h3>3. Want to Contribute?</h3>
+                <p>This project is Open Source! You can add new themes, fix bugs, or improve the logic. Fork the repository and submit a Pull Request.</p>
             </div>
-        </div>
+        </section>
 
-        <div class="card">
-            <h3 class="theme-title" style="color: #ffb7b2;">04. Midnight Sakura</h3>
-            <img class="preview-img" src="/api?username=ayushraistudio&theme=sakura&v=1" alt="Sakura Theme">
-            <div class="code-box" onclick="copyToClipboard(this)">
-                https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=sakura
-            </div>
-        </div>
-
-        <div class="card">
-            <h3 class="theme-title" style="color: #00ff00;">05. The Matrix</h3>
-            <img class="preview-img" src="/api?username=ayushraistudio&theme=matrix&v=1" alt="Matrix Theme">
-            <div class="code-box" onclick="copyToClipboard(this)">
-                https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=matrix
-            </div>
+        <div class="btn-container">
+            <a href="https://github.com/ayushraistudio/github-contribution-showcase" class="btn-pulse">
+                ⭐ Star on GitHub
+            </a>
         </div>
 
     </div>
 
-    <div class="footer-action">
-        <a href="https://github.com/ayushraistudio/github-contribution-showcase" class="btn">View Source on GitHub</a>
-    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="mailto:info@ayushraistudio.com" class="footer-link">✉️ info@ayushraistudio.com</a>
+            <a href="https://www.linkedin.com/in/ayushraistudio" target="_blank" class="footer-link">🔗 LinkedIn</a>
+            <a href="https://github.com/ayushraistudio" target="_blank" class="footer-link">🐙 GitHub</a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Ayush Rai Studio. All rights reserved.
+        </div>
+    </footer>
 
-    <div id="toast">URL Copied to Clipboard! 📋</div>
+    <div id="toast">URL Copied! 📋</div>
 
     <script>
         function copyToClipboard(element) {
