@@ -1,16 +1,18 @@
 const fetch = require("node-fetch");
 const fs = require("fs");
 
+// GitHub Actions environment se username uthayega
 const username = process.env.GITHUB_REPOSITORY_OWNER || "ayushraistudio";
 
 async function fetchGitHubData() {
   console.log("Fetching Data & Calculating Streak for:", username);
   const token = process.env.GH_TOKEN;
 
-  // GraphQL Query to get daily contribution history
+  // GraphQL Query to get daily contribution history AND User Name
   const query = `
     query {
       user(login: "${username}") {
+        name  
         createdAt
         repositories(first: 100, ownerAffiliations: OWNER, privacy: PUBLIC) {
           totalCount
@@ -92,6 +94,8 @@ async function fetchGitHubData() {
     console.log(`✅ Data Fetched for ${username} | Streak: ${currentStreak}, Contributions: ${totalContributions}`);
 
     const data = {
+      // Agar user ne naam set kiya hai to wo lo, nahi to username lo
+      name: userData.name || username, 
       public_repos: userData.repositories.totalCount, 
       total_contributions: totalContributions,
       active_days: activeDaysCount,
