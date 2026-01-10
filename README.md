@@ -1,8 +1,8 @@
 <div align="center">
-  <img src="./trophy.svg" width="700" />
+  <img src="./trophy_neon.svg" width="700" />
   
   <h1>🏆 Personal GitHub Trophy Generator</h1>
-  <p><b>Automatically generate a neon-style animated GitHub Trophy using GitHub Actions.</b></p>
+  <p><b>Automatically generate multi-themed animated GitHub Trophies using GitHub Actions.</b></p>
 
   <p>
     <a href="https://github.com/ayushraistudio/ayush-trophy/issues">
@@ -19,12 +19,21 @@
 
 ---
 
+## 🎨 Available Themes
+Pick the style that matches your profile!
+
+| Theme | Preview | Link to Copy |
+| :--- | :---: | :--- |
+| 🟢 **Neon** | <img src="./trophy_neon.svg" width="250" /> | `.../main/trophy_neon.svg` |
+| 🟣 **Cyberpunk** | <img src="./trophy_cyberpunk.svg" width="250" /> | `.../main/trophy_cyberpunk.svg` |
+
+---
 
 ## ✨ Features
 - 🔄 **Daily Auto Update** via GitHub Actions  
-- 🎨 **Neon / Glassmorphism Trophy Design**  
+- 🎨 **Multi-Theme Support** (Neon & Cyberpunk)
 - 📊 **Dynamic Stats** (Active Days, Contributions, Streak 🔥)  
-- 🧠 **Uses GitHub's Built-in Token** (No secrets needed)
+- 🤝 **Open for Contributions** (Add your own themes!)
 
 ---
 
@@ -40,47 +49,30 @@ Fork this repo into your GitHub account.
 4. Click **Run workflow**
 
 ### Step 3: Embed in Your Profile README
-Replace `YOUR_USERNAME` and paste this:
+Replace `YOUR_USERNAME` and choose your theme:
 
 ```html
-<div align="center">
-  <a href="https://github.com/ayushraistudio/ayush-trophy">
-    <img src="https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy.svg" width="700" />
-  </a>
-</div>
----
+<img src="[https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_neon.svg](https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_neon.svg)" width="700" />
 
-## 🎨 Customization
-You can customize:
-- 🎨 Colors → `src/generateTrophy.js`
-- 📐 Size → change `width` in README
-- 🧱 Layout / stats → `src/generateTrophy.js`
+<img src="[https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_cyberpunk.svg](https://raw.githubusercontent.com/YOUR_USERNAME/ayush-trophy/main/trophy_cyberpunk.svg)" width="700" />
+
 
 ---
 
-## 🛠️ Run Locally (For Developers)
+## 🤝 Contributing
+Want to add a new design? We love new themes! Please check our [Contributing Guide](./CONTRIBUTING.md) and send a PR! 🚀
 
+---
+
+## 🛠️ Run Locally
 ```bash
-git clone https://github.com/YOUR_USERNAME/ayush-trophy.git
+git clone [https://github.com/YOUR_USERNAME/ayush-trophy.git](https://github.com/YOUR_USERNAME/ayush-trophy.git)
 cd ayush-trophy
 npm install
-node index.js
-```
+node src/fetchData.js
+node src/generateTrophy.js
 
-This will generate `trophy.svg` locally.
-
----
-
-## ❗ Troubleshooting
-- Trophy not updating? → Re-run the workflow manually  
-- SVG not loading? → Wait 1–2 minutes (GitHub raw cache delay)  
-- Daily update stopped? → GitHub may auto-disable Actions on forks  
-
----
 
 <p align="center">
-  ⭐ Created by <a href="https://github.com/ayushraistudio">Ayush Rai</a> — Star the repo if you like it ⭐
+⭐ Created by <a href="https://github.com/ayushraistudio">Ayush Rai</a> — Special thanks to <a href="https://www.google.com/search?q=https://github.com/tshivam2007">Shivam Tiwari</a> for the Cyberpunk theme! ⭐
 </p>
-
-
-
