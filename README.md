@@ -12,7 +12,16 @@
 [![](https://img.shields.io/badge/Contributions-Welcome-blue.svg)](https://github.com/ayushraistudio/github-contribution-showcase/blob/main/CONTRIBUTING.md)
 
 
- 
+ ## 🆚 How is this different from other GitHub trophy tools?
+
+Most GitHub trophy or stats tools rely on scraped data or focus only on visuals.
+
+This project is different because:
+- it uses GitHub’s official GraphQL API for accurate data,
+- it avoids scraping and fake statistics,
+- it focuses on clean, readable SVG output,
+- it highlights meaningful metrics like streaks and active days.
+
 ---
 
 ## 🎨 Theme Gallery & Quick Setup
@@ -82,8 +91,8 @@ Futuristic design with glowing filled boxes (Pink, Blue, Yellow) and dark gradie
 [![GitHub Trophy](https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=hacker)](https://github.com/ayushraistudio/github-contribution-showcase)
 ```
 
+## 🚀 Why use this API instead of other tools?
 
-## 🚀 Why use this API?
 - **Live Updates:** No manual updates required. Every time someone visits your profile, they see your freshest stats!
 - **Fast Performance:** Powered by Vercel Serverless Functions for ultra-fast loading times.
 - **Click to Discover:** When someone clicks on your trophy, they are redirected straight back to this repository so they can create their own!
@@ -103,6 +112,7 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 
 ---
 <p align="center">Made with ❤️ by <a href="https://github.com/ayushraistudio">Ayush Rai</a></p>
+
 
 
 
