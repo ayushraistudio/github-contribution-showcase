@@ -12,7 +12,7 @@
 [![](https://img.shields.io/badge/Contributions-Welcome-blue.svg)](https://github.com/ayushraistudio/github-contribution-showcase/blob/main/CONTRIBUTING.md)
 
 
-
+ 
 ---
 
 ## 🎨 Theme Gallery & Quick Setup
@@ -103,6 +103,7 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 
 ---
 <p align="center">Made with ❤️ by <a href="https://github.com/ayushraistudio">Ayush Rai</a></p>
+
 
 
 
