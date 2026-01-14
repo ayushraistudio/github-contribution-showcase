@@ -1,9 +1,23 @@
 const axios = require('axios');
 
 async function fetchData(username) {
+  
+  
+  // 1. DEMO / UNIVERSAL PREVIEW LOGIC 
+  
+  if (username.toLowerCase() === 'demo' || username.toLowerCase() === 'your_username') {
+    return {
+      name: "YOUR NAME",            // Universal Name
+      total_contributions: 1025,    // Demo Data
+      active_days: 135,             // Demo Data
+      current_streak: 105           // Demo Data
+    };
+  }
+
+  // 2. REAL GITHUB DATA FETCHING 
+  
   const token = process.env.GITHUB_TOKEN;
 
-  
   if (!token) {
     throw new Error("GITHUB_TOKEN is missing in Environment Variables");
   }
@@ -45,7 +59,7 @@ async function fetchData(username) {
     const days = user.contributionsCollection.contributionCalendar.weeks
       .flatMap(week => week.contributionDays)
       .reverse();
-
+    
     let activeDays = 0;
     let currentStreak = 0;
     let streakBroken = false;
@@ -53,8 +67,10 @@ async function fetchData(username) {
     days.forEach((day, index) => {
       if (day.contributionCount > 0) {
         activeDays++;
+        
         if (!streakBroken) currentStreak++;
       } else {
+        
         if (index > 0) streakBroken = true;
       }
     });
@@ -63,8 +79,9 @@ async function fetchData(username) {
       name: displayName,
       total_contributions: user.contributionsCollection.contributionCalendar.totalContributions,
       active_days: activeDays,
-      current_streak: currentStreak
+      current_streak: currentStreak 
     };
+
   } catch (error) {
     console.error("FetchData Error:", error.message);
     throw error;
