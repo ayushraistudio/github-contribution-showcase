@@ -133,6 +133,12 @@ Please see
 [CONTRIBUTING.md](https://github.com/ayushraistudio/github-contribution-showcase/blob/main/CONTRIBUTING.md)
 for more details.
 
+## 💬 Discussions & Community
+
+Have questions, ideas, or feedback?  
+Join the discussion here:  
+👉 https://github.com/ayushraistudio/github-contribution-showcase/discussions
+
 ---
 
 ## 📄 License
@@ -145,3 +151,4 @@ See `LICENSE` for more information.
 <p align="center">
 Made with ❤️ by <a href="https://github.com/ayushraistudio">Ayush Rai</a>
 </p>
+
