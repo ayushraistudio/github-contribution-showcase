@@ -38,7 +38,7 @@ Choose your favorite design and copy the code below into your **Profile README**
 
 The classic glowing look with smooth animations.
 
-![Neon Preview](https://personal-trophy.vercel.app/api?username=ayushraistudio\&theme=neon\&v=2)
+![Neon Preview](https://personal-trophy.vercel.app/api?username=demo\&theme=neon\&v=2)
 
 ```markdown
 [![GitHub Trophy](https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=neon)](https://github.com/ayushraistudio/github-contribution-showcase)
@@ -50,7 +50,7 @@ The classic glowing look with smooth animations.
 
 A high-contrast, futuristic design for tech enthusiasts.
 
-![Cyberpunk Preview](https://personal-trophy.vercel.app/api?username=ayushraistudio\&theme=cyberpunk\&v=2)
+![Cyberpunk Preview](https://personal-trophy.vercel.app/api?username=demo\&theme=cyberpunk\&v=2)
 
 ```markdown
 [![GitHub Trophy](https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=cyberpunk)](https://github.com/ayushraistudio/github-contribution-showcase)
@@ -62,7 +62,7 @@ A high-contrast, futuristic design for tech enthusiasts.
 
 A classy, premium look for a standout profile.
 
-![Gold Preview](https://personal-trophy.vercel.app/api?username=ayushraistudio\&theme=gold\&v=2)
+![Gold Preview](https://personal-trophy.vercel.app/api?username=demo\&theme=gold\&v=2)
 
 ```markdown
 [![GitHub Trophy](https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=gold)](https://github.com/ayushraistudio/github-contribution-showcase)
@@ -74,7 +74,7 @@ A classy, premium look for a standout profile.
 
 An elegant dark theme with soft pink accents.
 
-![Sakura Preview](https://personal-trophy.vercel.app/api?username=ayushraistudio\&theme=sakura\&v=2)
+![Sakura Preview](https://personal-trophy.vercel.app/api?username=demo\&theme=sakura\&v=2)
 
 ```markdown
 [![GitHub Trophy](https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=sakura)](https://github.com/ayushraistudio/github-contribution-showcase)
@@ -86,7 +86,7 @@ An elegant dark theme with soft pink accents.
 
 A classic terminal-style look for a true coding vibe.
 
-![Matrix Preview](https://personal-trophy.vercel.app/api?username=ayushraistudio\&theme=matrix\&v=2)
+![Matrix Preview](https://personal-trophy.vercel.app/api?username=demo\&theme=matrix\&v=2)
 
 ```markdown
 [![GitHub Trophy](https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=matrix)](https://github.com/ayushraistudio/github-contribution-showcase)
@@ -98,7 +98,7 @@ A classic terminal-style look for a true coding vibe.
 
 A futuristic design with glowing filled boxes (pink, blue, and yellow) on a dark gradient background.
 
-![Hacker Preview](https://personal-trophy.vercel.app/api?username=ayushraistudio\&theme=hacker\&v=2)
+![Hacker Preview](https://personal-trophy.vercel.app/api?username=demo\&theme=hacker\&v=2)
 
 ```markdown
 [![GitHub Trophy](https://personal-trophy.vercel.app/api?username=YOUR_USERNAME&theme=hacker)](https://github.com/ayushraistudio/github-contribution-showcase)
@@ -140,3 +140,4 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 ---
 
 <p align="center">Made with ❤️ by <a href="https://github.com/ayushraistudio">Ayush Rai</a></p>
+
