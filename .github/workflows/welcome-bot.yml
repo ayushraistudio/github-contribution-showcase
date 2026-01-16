@@ -1,7 +1,8 @@
 name: Professional PR Assistant
 
+
 on:
-  pull_request:
+  pull_request_target:
     types: [opened]
 
 permissions:
@@ -44,3 +45,4 @@ jobs:
               issue_number: context.issue.number,
               body: message
             });
+            
