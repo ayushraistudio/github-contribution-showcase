@@ -1,0 +1,46 @@
+name: Professional PR Assistant
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  welcome-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Welcome Comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const actor = context.actor;
+            const repoName = context.repo.repo;
+
+            const message = `
+            ## 🤖 Automated PR Welcome
+
+            Hello @${actor},
+
+            Thanks for opening a pull request to **${repoName}**.  
+            Your PR has been received and is now pending review.
+
+            ### ℹ️ Important Notes
+            - **CI / Deployment checks:** Vercel checks may fail for external contributors due to permission restrictions. This is expected.
+            - **Authorization:** A maintainer (@ayushraistudio) will manually review and authorize deployments if required.
+
+            ### 🔍 What Happens Next
+            - Code logic and style will be reviewed by a maintainer.
+            - If any changes are needed, feedback will be posted here.
+
+            No action is required from you right now.
+            `;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: message
+            });
