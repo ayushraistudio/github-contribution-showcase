@@ -54,51 +54,25 @@ Important: Adapt this example to the existing structure in src/generateTrophy.js
 📏 SVG Theme Rules
 
 Every submitted theme must follow these rules.
-
 Required
-
 ✅ SVG only.
-
 ✅ The root element must be <svg>.
-
-✅ Include the correct namespace:
-
-xmlns="http://www.w3.org/2000/svg"
-
-
+✅ Include the correct namespace:  xmlns="http://www.w3.org/2000/svg"
 ✅ The SVG must be exactly 800×250.
-
-✅ Use:
-
-width="800"
-height="250"
-viewBox="0 0 800 250"
-
-
+✅ Use: width="800" height="250" viewBox="0 0 800 250"
 ✅ Use only the data provided by the existing data object.
-
 ✅ Keep the theme self-contained.
-
 ✅ Make sure the SVG renders correctly without external resources.
 
 Not Allowed
-
 ❌ No PNG, JPG, GIF, WebP, or other image files.
-
 ❌ No <image> elements referencing external or local images.
-
 ❌ No external fonts.
-
 ❌ No external CSS files.
-
 ❌ No external assets or URLs required to render the theme.
-
 ❌ No hardcoded GitHub usernames.
-
 ❌ Do not add fake contribution statistics.
-
 ❌ Do not modify unrelated API logic.
-
 ❌ Do not remove or break existing themes.
 
 Do Not Hardcode Usernames
