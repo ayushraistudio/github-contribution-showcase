@@ -1,143 +1,61 @@
-🤝 Contributing to GitHub-Contribution-Showcase
+Contributing to GitHub-Contribution-Showcase
 
-Thank you for your interest in contributing! 🎉
+Thank you for your interest in contributing to GitHub-Contribution-Showcase! We welcome contributions that improve the project's visual appeal, maintainability, and developer experience.
 
-This project is a dynamic API that generates contribution trophies using SVG themes. We welcome creative, clean, and beginner-friendly themes that make the showcase more interesting.
+GitHub-Contribution-Showcase is a dynamic API that generates contribution trophies using customizable SVG themes. We encourage contributors to create original, visually appealing, accessible, and beginner-friendly themes.
 
-You do not need a local development setup to contribute. You can make your changes directly through the GitHub website or GitHub mobile app. A local setup is optional if you prefer working locally.
+This guide explains how to add a new theme, test your changes, and submit a pull request.
 
-🎨 Adding a New SVG Theme
+Table of Contents
 
-The theme definitions are maintained in:
+- "Getting Started" (#getting-started)
+- "Adding a New SVG Theme" (#adding-a-new-svg-theme)
+- "SVG Design Requirements" (#svg-design-requirements)
+- "Using Existing Data" (#using-existing-data)
+- "Testing Your Theme" (#testing-your-theme)
+- "Contribution Workflow" (#contribution-workflow)
+- "Pull Request Guidelines" (#pull-request-guidelines)
+- "Common Reasons for Rejection" (#common-reasons-for-rejection)
+- "Final Checklist" (#final-checklist)
 
-src/generateTrophy.js
+Getting Started
 
+You do not need a local development environment to contribute. You can make changes directly through the GitHub web interface or GitHub mobile app.
 
-To add a theme, edit this file and add your theme to the existing themes structure.
+If you prefer working locally, you can clone your fork and use your preferred code editor.
+
+Before making changes, familiarize yourself with the existing theme definitions in:
+
+"src/generateTrophy.js"
+
+Important: Follow the existing code structure and conventions. Do not replace existing themes or modify unrelated API logic.
+
+Adding a New SVG Theme
 
 Step 1: Choose a Theme Name
 
-Choose a short, descriptive, and unique name.
+Choose a short, descriptive, and unique name that reflects your design.
 
 Examples:
 
-neon
-cyberpunk
-minimal
-retro
+- "neon"
+- "cyberpunk"
+- "minimal"
+- "retro"
 
+Avoid names that are ambiguous, offensive, or already used by another theme.
 
-Avoid names that are confusing, offensive, or already used by another theme.
+Step 2: Review the Existing Implementation
 
-Step 2: Add Your Theme
+Open "src/generateTrophy.js" and inspect how existing themes are defined.
 
-Open: src/generateTrophy.js
+Before using any data property, verify that it is available in the existing "data" object.
 
-Add your new SVG theme to the existing theme definitions.
+Step 3: Create Your Theme
 
-A basic theme can look like this:
-```
-your_theme_name: 
-  <svg
-    xmlns="http://www.w3.org/2000/svg"  width="800" height="250"  viewBox="0 0 800 250">
-    <rect width="800" height="250" fill="#111827" />
+Add your new theme using the same structure as the existing theme definitions.
 
-    <text  x="400"  y="120" text-anchor="middle" fill="#ffffff" font-size="28" >
-      Contributions: ${data.total_contributions}
-    </text>
-  </svg>
-  ```
-
-
-Important: Adapt this example to the existing structure in src/generateTrophy.js. Do not replace or remove existing themes.
-
-📏 SVG Theme Rules
-
-Every submitted theme must follow these rules.
-
-Required
-
-✅ SVG only.
-
-✅ The root element must be <svg>.
-
-✅ Include the correct namespace:
-
-xmlns="http://www.w3.org/2000/svg"
-
-
-✅ The SVG must be exactly 800×250.
-
-✅ Use:
-
-width="800"
-height="250"
-viewBox="0 0 800 250"
-
-
-✅ Use only the data provided by the existing data object.
-
-✅ Keep the theme self-contained.
-
-✅ Make sure the SVG renders correctly without external resources.
-
-Not Allowed
-
-❌ No PNG, JPG, GIF, WebP, or other image files.
-
-❌ No <image> elements referencing external or local images.
-
-❌ No external fonts.
-
-❌ No external CSS files.
-
-❌ No external assets or URLs required to render the theme.
-
-❌ No hardcoded GitHub usernames.
-
-❌ Do not add fake contribution statistics.
-
-❌ Do not modify unrelated API logic.
-
-❌ Do not remove or break existing themes.
-
-Do Not Hardcode Usernames
-
-Themes are generated for different GitHub users, so usernames must come from the provided data.
-
-Do not do this:
-
-<text>Username: octocat</text>
-
-
-Instead, use the appropriate value from the existing data object.
-
-Before using a property, check src/generateTrophy.js to see which data fields are actually available.
-
-🧩 Use Only the Provided Data
-
-A theme should display information from the existing data object.
-
-Do not create your own hardcoded user information or statistics.
-
-For example:
-
-${data.total_contributions}
-
-
-is acceptable if total_contributions is provided by the existing data object.
-
-Do not invent new data fields unless the project already supports them.
-
-📐 Keep the SVG at 800×250
-
-Every theme must fit inside the fixed canvas:
-
-Width:  800px
-Height: 250px
-
-
-Use:
+The following SVG illustrates a basic theme. Adapt it to the project's actual syntax and rendering logic.
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -145,170 +63,180 @@ Use:
   height="250"
   viewBox="0 0 800 250"
 >
+  <rect width="800" height="250" fill="#111827" />
 
+  <text
+    x="400"
+    y="120"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-size="28"
+  >
+    Contributions: ${data.total_contributions}
+  </text>
+</svg>
 
-Your design should remain readable and visually correct across the entire 800×250 area.
+This example demonstrates the required SVG dimensions and dynamic use of contribution data. It is an illustrative snippet, not a replacement for the existing theme structure.
 
-🧪 Testing Your Theme
+SVG Design Requirements
 
-You can test your theme using the Vercel preview deployment.
+Every submitted theme must satisfy the following requirements.
 
-After pushing your changes to your fork/branch, open the Vercel preview URL for that deployment and call the API with your theme name.
+Required
 
-The URL follows this pattern:
+- Use SVG markup exclusively.
+- Use "<svg>" as the root element.
+- Include "xmlns="http://www.w3.org/2000/svg"".
+- Set "width="800"" and "height="250"".
+- Set "viewBox="0 0 800 250"".
+- Use only properties supported by the existing "data" object.
+- Keep the theme self-contained, with no external dependencies.
+- Ensure the SVG renders correctly within the fixed canvas.
+- Follow the existing project's conventions.
 
-https://your-preview-url.vercel.app/api?username=your_username&theme=your_theme_name
+Not Allowed
 
+- Raster images, including PNG, JPG, GIF, and WebP.
+- External or local image references through "<image>" elements.
+- External fonts or stylesheets.
+- External assets or URLs required for rendering.
+- Hardcoded GitHub usernames or fabricated statistics.
+- Unsupported data properties.
+- Changes to unrelated API logic.
+- Unnecessary modifications to existing themes.
 
-Replace:
+Using Existing Data Correctly
 
-your-preview-url with your Vercel preview deployment.
+Themes are generated dynamically for different GitHub users. All user-specific information and contribution statistics must come from the existing data object.
 
-your_username with the GitHub username you want to test.
+For example, if the project supports "data.total_contributions", you may use:
 
-your_theme_name with the exact name of your new theme.
+${data.total_contributions}
 
-For example:
+Do not hardcode a username or contribution count.
 
-https://your-preview-url.vercel.app/api?username=octocat&theme=your_theme_name
+Before using a property, verify that it exists in the current implementation. Do not introduce new data fields unless the project already supports them.
 
+Canvas and Layout Guidelines
 
-Check that:
+Every theme must use the fixed canvas dimensions:
 
-The SVG loads successfully.
+Property| Required value
+Width| "800"
+Height| "250"
+ViewBox| "0 0 800 250"
 
-The dimensions are 800×250.
+For the best visual results:
 
-The theme looks correct.
+- Keep text readable and properly aligned.
+- Maintain sufficient contrast between text and background.
+- Avoid clipping, overflow, and unnecessary visual clutter.
+- Use consistent spacing and a clear visual hierarchy.
+- Ensure important content remains inside the canvas.
 
-User-specific information is displayed dynamically.
+Creative designs are welcome, provided they follow the technical requirements.
 
-No external images or fonts are required.
+Testing Your Theme
 
-Existing themes still work.
+Test your changes using the Vercel preview deployment associated with your branch or pull request.
 
-If the preview does not render correctly, fix the theme before opening your PR.
+The API URL follows this format:
 
-📱 You Can Contribute Without Local Setup
+"https://your-preview-url.vercel.app/api?username=your_username&theme=your_theme_name"
 
-A local development environment is optional.
+Replace the placeholders with the actual preview URL, a GitHub username for testing, and your theme's exact name.
 
-You can contribute using:
+Verify the following before submitting your pull request:
 
-GitHub web editor
+1. The API returns a valid SVG.
+2. The SVG dimensions are exactly "800 × 250".
+3. The design renders correctly without clipping or layout issues.
+4. User-specific information is populated dynamically.
+5. No external assets or fonts are required.
+6. Existing themes continue to work.
 
-GitHub mobile app
+If the preview fails or the SVG renders incorrectly, resolve the issue before submitting your changes.
 
-A local clone of the repository
+Contribution Workflow
 
-If you are new to GitHub, the simplest workflow is:
+Follow these steps to contribute:
 
-Fork the repository.
+1. Fork the repository to your GitHub account.
+2. Open "src/generateTrophy.js" in your fork.
+3. Add your new theme while preserving the existing implementation.
+4. Commit your changes to your fork or a dedicated branch.
+5. Test the theme using the Vercel preview deployment.
+6. Open a pull request against the original repository.
 
-Open src/generateTrophy.js.
+You can complete this workflow using the GitHub web editor or mobile app. A local development setup is optional.
 
-Edit the file using GitHub's web or mobile editor.
+Pull Request Guidelines
 
-Commit your changes to your fork.
+One Theme Per Pull Request
 
-Test the Vercel preview deployment.
+Submit only one new theme per pull request.
 
-Open a Pull Request.
+If you create multiple themes, submit a separate pull request for each one. This allows maintainers to review, test, and merge contributions independently.
 
-🚀 Pull Request Rules
+Keep Changes Focused
 
-Please follow these rules when submitting a theme.
+A theme-related pull request should include only the changes necessary to introduce that theme.
 
-One Theme Per PR
+Please avoid:
 
-Submit only one new theme per Pull Request.
+- Unrelated refactoring or formatting changes.
+- Modifying existing themes unnecessarily.
+- Changing API behavior.
+- Removing existing functionality.
+- Updating dependencies without a clear requirement.
+- Including multiple unrelated features.
 
-Do not combine multiple unrelated themes into one PR.
+Describe Your Contribution Clearly
 
-If you have created three themes, submit three separate PRs.
+Your pull request description should briefly explain:
 
-This makes review easier and allows individual themes to be accepted or rejected independently.
+- The name of the new theme.
+- Its visual concept or design approach.
+- The changes made.
+- The testing performed and its results.
 
-Keep Your Changes Focused
+Clear descriptions help maintainers review contributions efficiently.
 
-A theme PR should normally contain only the changes necessary to add that theme.
+Common Reasons for Rejection
 
-Avoid:
+A pull request may require changes if it:
 
-Unrelated refactoring
+- Uses incorrect SVG dimensions or omits the required namespace.
+- Depends on external images, fonts, stylesheets, or assets.
+- Hardcodes usernames or contribution statistics.
+- References unsupported data properties.
+- Produces invalid, incomplete, or visually broken SVG.
+- Breaks existing themes or API functionality.
+- Includes multiple themes in a single pull request.
+- Contains unrelated changes.
+- Lacks a clear explanation of the contribution.
 
-Formatting unrelated files
+Final Checklist
 
-Changing existing themes
+Before submitting your pull request, confirm that:
 
-Modifying API behavior
+- [ ] I added my theme to "src/generateTrophy.js".
+- [ ] The theme uses SVG markup exclusively.
+- [ ] The SVG dimensions are exactly "800 × 250".
+- [ ] The SVG includes the correct namespace.
+- [ ] I did not use external images, fonts, or assets.
+- [ ] I used only supported properties from the existing data object.
+- [ ] I did not hardcode usernames or contribution statistics.
+- [ ] I tested the theme using the Vercel preview API.
+- [ ] Existing themes and API functionality remain unaffected.
+- [ ] My pull request contains only one new theme.
+- [ ] I excluded unrelated changes.
+- [ ] My pull request description clearly explains the changes.
 
-Removing existing code
+Thank You for Contributing
 
-Updating dependencies without a reason
+We appreciate your time and effort in improving GitHub-Contribution-Showcase.
 
-❌ Common Reasons for PR Rejection
+Every thoughtful contribution helps make the project more creative, reliable, and welcoming to developers of all experience levels.
 
-Your PR may need changes if it contains any of the following:
-
-❌ SVG is not exactly 800×250.
-
-❌ Missing xmlns="http://www.w3.org/2000/svg".
-
-❌ External images or assets are used.
-
-❌ External fonts are used.
-
-❌ A GitHub username is hardcoded.
-
-❌ Contribution statistics are hardcoded or invented.
-
-❌ Data outside the provided data object is used.
-
-❌ The SVG does not render correctly.
-
-❌ The theme breaks existing API functionality.
-
-❌ Existing themes were unnecessarily modified or removed.
-
-❌ Multiple themes are included in one PR.
-
-❌ Unrelated changes are included in the PR.
-
-❌ The theme is incomplete or visually broken.
-
-❌ The PR does not explain what was changed.
-
-✅ Final Checklist
-
-Before opening your PR, make sure:
-
- I added my theme in src/generateTrophy.js.
-
- My theme is SVG only.
-
- The SVG is exactly 800×250.
-
- The SVG has xmlns="http://www.w3.org/2000/svg".
-
- I did not use external images.
-
- I did not use external fonts.
-
- I did not hardcode a username.
-
- I used only the provided data object.
-
- I tested the theme using the Vercel preview API.
-
- Existing themes still work.
-
- This PR contains only one theme.
-
- I did not include unrelated changes.
-
-🙌 Thank You!
-
-Thank you for helping improve GitHub-Contribution-Showcase!
-
-Small, focused, and well-tested contributions make the project easier for everyone to maintain. 💙
+Happy contributing!
